@@ -1,0 +1,47 @@
+[
+ {
+  "type": "niveau",
+  "sev": 5,
+  "titre": "France · risque extérieur : niveau 3 → 2 (Risque critique)",
+  "texte": "Valeur continue 2,57 → 2,47. Dégradation d'un niveau entier.",
+  "lien": "#france",
+  "date": "2026-10-23",
+  "id": "2026-10-23-1"
+ },
+ {
+  "type": "critique",
+  "sev": 5,
+  "titre": "Gaz naturel TTF passe à 5/5",
+  "texte": "~92,3 €/MWh (23 oct. 2026) ; stocks UE 74,6 % (22 oct.)",
+  "lien": "#monde-financier",
+  "date": "2026-10-23",
+  "id": "2026-10-23-2"
+ },
+ {
+  "type": "critique",
+  "sev": 5,
+  "titre": "Sabotage, drones et ciblage hybride russes en Europe passe à 5/5",
+  "texte": "Complot de Fairford attribué aux Gardiens par Londres (12 oct.) ; Starlink incendié en Bulgarie (10 oct.) et visé près de Vilnius (18 oct.) ; WSJ : Poutine a ordonné d'intensifier les sabotages (21 oct.)",
+  "lien": "#monde-hybride",
+  "date": "2026-10-23",
+  "id": "2026-10-23-3"
+ },
+ {
+  "type": "critique",
+  "sev": 5,
+  "titre": "Ordre public et violences urbaines passe à 5/5",
+  "texte": "≈ 2 400 interpellations, 997 FDO/pompiers blessés, ≥ 3 000 commerces touchés, ≈ 1,1 Md€ de dégâts ; couvre-feux à Paris, Lyon, Marseille et Toulouse (19-26/10)",
+  "lien": "#france-alertes",
+  "date": "2026-10-23",
+  "id": "2026-10-23-4"
+ },
+ {
+  "type": "posture",
+  "sev": 4,
+  "titre": "Posture officielle modifiée : Notations souveraines",
+  "texte": "Moody's Aa3 perspective négative, maintenue le 23/10/2026 sans action de notation (dégradation à A1 attendue mais évitée) ; Fitch A+ stable (28/08/2026) ; S&P A+ stable (29/05/2026, revue le 27/11/2026) ; DBRS AA négative (18/09/2026) ; Scope A+ stable (18/09/2026) ; KBRA AA- stable (12/06/2026, rev",
+  "lien": "#france-postures",
+  "date": "2026-10-23",
+  "id": "2026-10-23-5"
+ }
+]
