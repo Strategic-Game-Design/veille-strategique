@@ -1,0 +1,37 @@
+name: Relais RSS vers Discord
+
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: relais
+  cancel-in-progress: false
+
+jobs:
+  relais:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Relayer les nouveaux articles
+        env:
+          WEBHOOK_INFOG: ${{ secrets.WEBHOOK_INFOG }}
+          WEBHOOK_INFOPS: ${{ secrets.WEBHOOK_INFOPS }}
+        run: node Scripts/relais.js
+      - name: Mémoriser les articles envoyés
+        run: |
+          if [ -n "$(git status --porcelain data/relais_etat.json)" ]; then
+            git config user.name "relais-veille"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/relais_etat.json
+            git commit -m "Relais : mémoire des articles envoyés [skip ci]"
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
