@@ -24,6 +24,7 @@ jobs:
         env:
           WEBHOOK_INFOG: ${{ secrets.WEBHOOK_INFOG }}
           WEBHOOK_INFOPS: ${{ secrets.WEBHOOK_INFOPS }}
+          WEBHOOK_TEST: ${{ secrets.WEBHOOK_TEST }}
         run: node Scripts/relais.js
       - name: Mémoriser les articles envoyés
         run: |
