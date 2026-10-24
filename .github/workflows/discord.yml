@@ -5,6 +5,12 @@ on:
     branches: [main]
     paths: ['data/veille.json']
   workflow_dispatch:
+    inputs:
+      cible:
+        description: 'Où envoyer ?'
+        type: choice
+        options: ['test', 'salons réels']
+        default: 'test'
 
 jobs:
   discord:
@@ -16,7 +22,7 @@ jobs:
           node-version: '24'
       - name: Publier le bulletin et les alertes
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_WEBHOOK_ALERTES: ${{ secrets.DISCORD_WEBHOOK_ALERTES }}
-          DISCORD_ROLE_ID: ${{ vars.DISCORD_ROLE_ID }}
+          DISCORD_WEBHOOK: ${{ inputs.cible == 'test' && secrets.WEBHOOK_TEST || secrets.DISCORD_WEBHOOK }}
+          DISCORD_WEBHOOK_ALERTES: ${{ inputs.cible == 'test' && secrets.WEBHOOK_TEST || secrets.DISCORD_WEBHOOK_ALERTES }}
+          DISCORD_ROLE_ID: ${{ inputs.cible != 'test' && vars.DISCORD_ROLE_ID || '' }}
         run: node Scripts/discord.js
