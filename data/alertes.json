@@ -1,6 +1,15 @@
 [
  {
   "type": "niveau",
+  "sev": 2,
+  "titre": "France · risque extérieur : niveau 2 → 3 (Risque élevé)",
+  "texte": "Valeur continue 2,47 → 2,52. Amélioration d'un niveau entier.",
+  "lien": "#france",
+  "date": "2026-10-25",
+  "id": "2026-10-25-1"
+ },
+ {
+  "type": "niveau",
   "sev": 5,
   "titre": "France · risque extérieur : niveau 3 → 2 (Risque critique)",
   "texte": "Valeur continue 2,57 → 2,47. Dégradation d'un niveau entier.",

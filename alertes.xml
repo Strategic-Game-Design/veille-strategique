@@ -4,8 +4,15 @@
 <id>https://strategic-game-design.github.io/veille-strategique/alertes.xml</id>
 <link rel="self" href="https://strategic-game-design.github.io/veille-strategique/alertes.xml"/>
 <link rel="alternate" href="https://strategic-game-design.github.io/veille-strategique/"/>
-<updated>2026-10-23T08:00:00+02:00</updated>
+<updated>2026-10-25T08:00:00+02:00</updated>
 <author><name>Veille stratégique mondiale</name></author>
+<entry>
+<title>🔵 France · risque extérieur : niveau 2 → 3 (Risque élevé)</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-10-25-1</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#france"/>
+<updated>2026-10-25T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;Valeur continue 2,47 → 2,52. Amélioration d&amp;apos;un niveau entier.&lt;/p&gt;&lt;p&gt;Bulletin du 25 octobre 2026&lt;/p&gt;</summary>
+</entry>
 <entry>
 <title>🔴 France · risque extérieur : niveau 3 → 2 (Risque critique)</title>
 <id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-10-23-1</id>
