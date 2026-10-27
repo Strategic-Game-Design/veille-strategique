@@ -30,6 +30,9 @@ if (pdvs.length < 1000) { console.error(`Flux suspect : ${pdvs.length} stations 
 const depDe = cp => { cp = String(cp || '').padStart(5, '0'); if (cp.startsWith('20')) return +cp < 20200 ? '2A' : '2B'; const d = cp.slice(0, 2); return REG[d] ? d : null; };
 const parseD = s => { if (!s) return null; const t = Date.parse(s.replace(' ', 'T') + (/[zZ+]/.test(s.slice(10)) ? '' : '+01:00')); return isNaN(t) ? null : t; };
 const FRAIS = 8 * 864e5;            // prix de plus de 8 jours ignorés pour les moyennes
+const RUPT_MAX_J = 21;               // une rupture déclarée depuis plus de 21 jours n'est plus comptée
+const DIAG = {};                     // âge des ruptures déclarées, par carburant (contrôle)
+const VERSION = 2;
 const st = [];                       // { dep, prix:{carb:valeur}, rupt:Set }
 let derniereMaj = 0;
 for (const p of pdvs) {
@@ -46,6 +49,10 @@ for (const p of pdvs) {
     const x = attrs(m[1]); const c = CARB[x.id] || (x.nom === 'E10' ? 'E10' : NOMS[x.nom] ? x.nom : null); if (!c) continue;
     if ((x.type || 'temporaire') !== 'temporaire') continue;
     const fin = parseD(x.fin); if (fin && fin < now.getTime()) continue;
+    const deb = parseD(x.debut), age = deb ? (now - deb) / 864e5 : null;
+    const b = age == null ? 'inconnu' : age < 3 ? '<3 j' : age < 7 ? '3-7 j' : age < 21 ? '7-21 j' : age < 90 ? '21-90 j' : '>90 j';
+    (DIAG[c] = DIAG[c] || {})[b] = (DIAG[c][b] || 0) + 1;
+    if (age == null || age > RUPT_MAX_J) continue;   // rupture « temporaire » ancienne = arrêt de distribution, pas une tension
     s.rupt.add(c); s.vend.add(c);
   }
   st.push(s);
@@ -71,6 +78,7 @@ const regions = {}; for (const r in parReg) { const a = agreger(parReg[r]); regi
 
 // ---------- historique ----------
 let OLD = {}; try { OLD = JSON.parse(fs.readFileSync(OUT, 'utf8')); } catch (e) {}
+if (OLD.version !== VERSION) OLD = { serie: [] };   // changement de méthode : on repart d'un historique propre
 let V = {}; try { V = JSON.parse(fs.readFileSync('data/veille.json', 'utf8')); } catch (e) {}
 const jour = new Date(now.getTime() + 2 * 3600e3).toISOString().slice(0, 10); // jour de Paris (approx.)
 const serie = (OLD.serie || []).filter(e => e.d !== jour);
@@ -109,6 +117,7 @@ const alerte = (cle, actif, retour, a) => { if (actif && !actives[cle]) { active
 for (const c of ['Gazole', 'E10']) {
   const r = national[c] ? national[c].rupt : 0;
   alerte(`nat5-${c}`, r >= 5, r < 4, { sev: 5, titre: `${NOMS[c]} : ${String(r).replace('.', ',')} % des stations en rupture en France`, texte: 'Seuil national de 5 % franchi.' });
+  if (r >= 5 && !actives[`nat2-${c}`]) actives[`nat2-${c}`] = jour;   // pas de double alerte 2 % + 5 %
   alerte(`nat2-${c}`, r >= 2, r < 1.5, { sev: 4, titre: `${NOMS[c]} : ruptures nationales à ${String(r).replace('.', ',')} %`, texte: 'Seuil national de 2 % franchi.' });
   const v = var7[c]; alerte(`prix-${c}`, v != null && v >= 0.08, v != null && v < 0.04, { sev: 4, titre: `${NOMS[c]} : +${String(Math.round((v || 0) * 100)).replace('.', ',')} centimes en 7 jours`, texte: `Prix moyen ${String(national[c] ? national[c].prix : '').replace('.', ',')} €/L.` });
   const avant = nouvelles.length;
@@ -126,6 +135,7 @@ const journal = [...nouvelles.map(a => ({ date: now.toISOString(), ...a })), ...
 
 // ---------- écriture ----------
 const OUTD = {
+  version: VERSION, controle_ruptures: { seuil_jours: RUPT_MAX_J, age: DIAG },
   maj: now.toISOString(), donnees_maj: derniereMaj ? new Date(derniereMaj).toISOString() : null,
   source: 'prix-carburants.gouv.fr — flux instantané (ministère de l’Économie)', n_stations: st.length,
   indice: { niveau, libelle: LIB[niveau], continu, severite: sev, composantes: comp.map(({ k, t, sev, w, val }) => ({ k, t, sev, w, val })) },
