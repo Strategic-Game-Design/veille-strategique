@@ -1,0 +1,52 @@
+name: Suivi carburant
+
+on:
+  schedule:
+    - cron: '23 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      cible:
+        description: 'Où envoyer les alertes ?'
+        type: choice
+        options: ['test', 'salons réels']
+        default: 'test'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: carburant
+  cancel-in-progress: false
+
+jobs:
+  carburant:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Télécharger le flux officiel
+        run: |
+          mkdir -p "$RUNNER_TEMP/flux"
+          curl -fsSL --retry 3 --retry-delay 20 -A "Mozilla/5.0 (veille-strategique)" -o "$RUNNER_TEMP/flux.zip" \
+            "https://donnees.roulez-eco.fr/opendata/instantane_ruptures" \
+          || curl -fsSL --retry 3 --retry-delay 20 -o "$RUNNER_TEMP/flux.zip" \
+            "https://www.data.gouv.fr/api/1/datasets/r/e4c436eb-0a7d-4b77-8a64-9ed898da0122"
+          unzip -o -q "$RUNNER_TEMP/flux.zip" -d "$RUNNER_TEMP/flux"
+          ls -la "$RUNNER_TEMP/flux"
+      - name: Calculer prix, ruptures et indice
+        env:
+          DISCORD_WEBHOOK_ALERTES: ${{ inputs.cible == 'test' && secrets.WEBHOOK_TEST || secrets.DISCORD_WEBHOOK_ALERTES }}
+          DISCORD_ROLE_ID: ${{ inputs.cible != 'test' && vars.DISCORD_ROLE_ID || '' }}
+        run: node Scripts/carburant.js "$(ls "$RUNNER_TEMP"/flux/*.xml | head -1)"
+      - name: Enregistrer les données
+        run: |
+          if [ -n "$(git status --porcelain data/carburant.json)" ]; then
+            git config user.name "suivi-carburant"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/carburant.json
+            git commit -m "Carburant : relevé automatique"
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
