@@ -98,8 +98,8 @@ let pireDep = null; for (const d in deps) for (const c of ['Gazole', 'E10']) { c
 const nDep10 = Object.values(deps).filter(x => ['Gazole', 'E10'].some(c => x[c] && x[c][2] >= 15 && x[c][1] >= 10)).length;
 const amont = V.carburant && V.carburant.amont && V.carburant.amont.sev ? V.carburant.amont : null;
 const comp = [
-  { k: 'ruptures', t: 'Ruptures nationales', sev: pal(ruptNat, [0.5, 1, 2, 5]), w: 0.35, val: `${String(ruptNat).replace('.', ',')} % des stations (gazole ou SP95-E10)` },
-  { k: 'local', t: 'Foyers locaux', sev: pal(pireDep ? pireDep.v : 0, [3, 6, 10, 20]), w: 0.2, val: pireDep ? `${String(pireDep.v).replace('.', ',')} % au pire (${pireDep.d}, ${NOMS[pireDep.c]}) · ${nDep10} dép. ≥ 10 %` : '—' },
+  { k: 'ruptures', t: 'Ruptures nationales', sev: pal(ruptNat, [1, 2, 5, 10]), w: 0.35, val: `${String(ruptNat).replace('.', ',')} % des stations (gazole ou SP95-E10)` },
+  { k: 'local', t: 'Foyers locaux', sev: nDep10 >= 20 ? 5 : nDep10 >= 8 ? 4 : nDep10 >= 3 ? 3 : nDep10 >= 1 ? 2 : 1, w: 0.2, val: `${nDep10} département${nDep10 > 1 ? 's' : ''} à 10 % ou plus` + (pireDep ? ` · pire : ${NOMDEP[pireDep.d]} ${String(pireDep.v).replace('.', ',')} % (${NOMS[pireDep.c]})` : '') },
   { k: 'prix', t: 'Dynamique des prix', sev: pal(var30.Gazole, [0, 3, 6, 10]), w: 0.2, val: var30.Gazole == null ? 'historique insuffisant (30 j)' : `gazole ${var30.Gazole > 0 ? '+' : ''}${String(var30.Gazole).replace('.', ',')} % sur 30 j` },
   { k: 'amont', t: 'Approvisionnement amont', sev: amont ? amont.sev : null, w: 0.25, val: amont ? (amont.texte || '') : 'en attente du relevé hebdomadaire' },
 ];
@@ -129,13 +129,14 @@ for (const c of ['Gazole', 'E10']) {
   } else nouvelles.push(...lot);
 }
 for (const a of nouvelles) { delete a.dep; delete a.v; }
-const lvlAvant = OLD.indice && OLD.indice.niveau;
+const CALIB = 2;   // version des seuils de l'indice : pas d'alerte de niveau quand seuls les seuils changent
+const lvlAvant = OLD.calib === CALIB && OLD.indice && OLD.indice.niveau;
 if (lvlAvant && lvlAvant !== niveau) nouvelles.push({ sev: niveau < lvlAvant ? (niveau <= 2 ? 5 : 4) : 2, titre: `Tension carburant : niveau ${lvlAvant} → ${niveau} (${LIB[niveau]})`, texte: `Valeur continue ${String(continu).replace('.', ',')}.` });
 const journal = [...nouvelles.map(a => ({ date: now.toISOString(), ...a })), ...(OLD.journal || [])].slice(0, 80);
 
 // ---------- écriture ----------
 const OUTD = {
-  version: VERSION, controle_ruptures: { seuil_jours: RUPT_MAX_J, age: DIAG },
+  version: VERSION, calib: CALIB, controle_ruptures: { seuil_jours: RUPT_MAX_J, age: DIAG },
   maj: now.toISOString(), donnees_maj: derniereMaj ? new Date(derniereMaj).toISOString() : null,
   source: 'prix-carburants.gouv.fr — flux instantané (ministère de l’Économie)', n_stations: st.length,
   indice: { niveau, libelle: LIB[niveau], continu, severite: sev, composantes: comp.map(({ k, t, sev, w, val }) => ({ k, t, sev, w, val })) },
