@@ -37,6 +37,17 @@ function lire(xml) {
   }).filter(a => a.id && a.titre);
 }
 
+// image de l'article : celle du flux, sinon l'image de partage (og:image / twitter:image) de la page
+async function imageDePage(url) {
+  if (!/^https?:/.test(url || '')) return '';
+  try {
+    const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)', Accept: 'text/html' }, signal: AbortSignal.timeout(12000) });
+    if (!r.ok) return '';
+    const html = (await r.text()).slice(0, 300000);
+    const m = /<meta[^>]+(?:property|name)=["'](?:og:image(?::secure_url)?|twitter:image)["'][^>]*content=["']([^"']+)["']/i.exec(html) || /<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["']/i.exec(html);
+    return m ? new URL(dec(m[1]), url).href : '';
+  } catch (e) { return ''; }
+}
 const pause = ms => new Promise(r => setTimeout(r, ms));
 async function poster(hook, body) {
   for (let essai = 0; essai < 4; essai++) {
@@ -69,13 +80,14 @@ async function poster(hook, body) {
     const envoyesIci = new Set();
     for (const a of nouveaux) {
       const d = Date.parse(a.date);
+      if (!a.img && f.images !== false && hook) a.img = await imageDePage(a.lien);
       const body = {
         username: f.nom, avatar_url: f.avatar || undefined, allowed_mentions: { parse: [] },
         embeds: [{
           title: cut(a.titre, 250), url: a.lien || undefined, color: couleur,
           description: a.resume ? cut(a.resume, 350) : undefined,
           author: { name: f.nom + (a.auteur ? ` · ${a.auteur}` : '') },
-          ...(a.img && f.images !== false ? { thumbnail: { url: a.img } } : {}),
+          ...(a.img && f.images !== false ? { image: { url: a.img } } : {}),
           ...(isNaN(d) ? {} : { timestamp: new Date(d).toISOString() }),
           footer: { text: f.etiquette || 'Relais de veille' },
         }],
