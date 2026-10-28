@@ -1,8 +1,8 @@
 {
  "flux": [
-  { "nom": "Diploweb", "url": "https://www.diploweb.com/spip.php?page=backend", "webhook": "WEBHOOK_INFOG", "couleur": "#7a1f2b", "etiquette": "Géopolitique · réflexion", "premier_envoi": 2 },
-  { "nom": "IRIS", "url": "https://www.iris-france.org/feed/", "webhook": "WEBHOOK_INFOG", "couleur": "#1f4e79", "etiquette": "Géopolitique · analyses", "premier_envoi": 2 },
-  { "nom": "OPEX360", "url": "https://www.opex360.com/feed/", "webhook": "WEBHOOK_INFOPS", "couleur": "#4b5320", "etiquette": "Défense · opérations", "actif": false },
-  { "nom": "Forces Operations Blog", "url": "https://www.forcesoperations.com/feed/", "webhook": "WEBHOOK_INFOPS", "couleur": "#5a5a5a", "etiquette": "Défense · industrie et opérations", "actif": false }
+  {"nom": "Diploweb", "url": "https://www.diploweb.com/spip.php?page=backend", "webhook": "WEBHOOK_INFOG", "couleur": "#7a1f2b", "etiquette": "Géopolitique · réflexion", "premier_envoi": 2, "avatar": "https://raw.githubusercontent.com/Strategic-Game-Design/veille-strategique/main/avatars/diploweb.png"},
+  {"nom": "IRIS", "url": "https://www.iris-france.org/feed/", "webhook": "WEBHOOK_INFOG", "couleur": "#1f4e79", "etiquette": "Géopolitique · analyses", "premier_envoi": 2, "avatar": "https://raw.githubusercontent.com/Strategic-Game-Design/veille-strategique/main/avatars/iris.png"},
+  {"nom": "OPEX360", "url": "https://www.opex360.com/feed/", "webhook": "WEBHOOK_INFOPS", "couleur": "#4b5320", "etiquette": "Défense · opérations", "actif": false, "avatar": "https://raw.githubusercontent.com/Strategic-Game-Design/veille-strategique/main/avatars/opex360.png"},
+  {"nom": "Forces Operations Blog", "url": "https://www.forcesoperations.com/feed/", "webhook": "WEBHOOK_INFOPS", "couleur": "#5a5a5a", "etiquette": "Défense · industrie et opérations", "actif": false, "avatar": "https://raw.githubusercontent.com/Strategic-Game-Design/veille-strategique/main/avatars/fob.png"}
  ]
 }
