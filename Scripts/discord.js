@@ -9,6 +9,7 @@
 */
 const fs = require('fs');
 const SITE = 'https://strategic-game-design.github.io/veille-strategique/';
+const AV = 'https://raw.githubusercontent.com/Strategic-Game-Design/veille-strategique/main/avatars/';
 const RAW = 'https://raw.githubusercontent.com/Strategic-Game-Design/veille-strategique/main/';
 const D = JSON.parse(fs.readFileSync('data/veille.json', 'utf8'));
 let NEW = []; try { NEW = JSON.parse(fs.readFileSync('data/nouvelles_alertes.json', 'utf8')); } catch (e) {}
@@ -52,10 +53,10 @@ const hookB = process.env.DISCORD_WEBHOOK, hookA = process.env.DISCORD_WEBHOOK_A
 const nbA = NEW.length ? `${NEW.length} alerte${NEW.length > 1 ? 's' : ''} depuis le relevé précédent` : '';
 const msgs = [];
 if (hookA) {
-  msgs.push({ hook: hookB, forum: true, nom: 'le bulletin', payload: { username: 'Veille stratégique', content: `📡 **Nouveau bulletin de veille** — ${N.titre || dateL}`, embeds: [bulletin], allowed_mentions: { parse: [] } } });
-  if (alertes.length) msgs.push({ hook: hookA, nom: 'les alertes', payload: { username: 'Veille stratégique · alertes', content: `🚨 **${nbA}** — bulletin du ${dateL}${ping}`, embeds: alertes, allowed_mentions: mentions } });
+  msgs.push({ hook: hookB, forum: true, nom: 'le bulletin', payload: { username: 'Veille stratégique', avatar_url: AV + 'veille.png', content: `📡 **Nouveau bulletin de veille** — ${N.titre || dateL}`, embeds: [bulletin], allowed_mentions: { parse: [] } } });
+  if (alertes.length) msgs.push({ hook: hookA, nom: 'les alertes', payload: { username: 'Veille stratégique · alertes', avatar_url: AV + 'alertes.png', content: `🚨 **${nbA}** — bulletin du ${dateL}${ping}`, embeds: alertes, allowed_mentions: mentions } });
 } else {
-  msgs.push({ hook: hookB, forum: true, nom: 'le bulletin', payload: { username: 'Veille stratégique', content: `📡 **Nouveau bulletin de veille** — ${N.titre || dateL}` + (nbA ? `\n${nbA}${ping}` : ''), embeds: [bulletin, ...alertes].slice(0, 10), allowed_mentions: mentions } });
+  msgs.push({ hook: hookB, forum: true, nom: 'le bulletin', payload: { username: 'Veille stratégique', avatar_url: AV + 'veille.png', content: `📡 **Nouveau bulletin de veille** — ${N.titre || dateL}` + (nbA ? `\n${nbA}${ping}` : ''), embeds: [bulletin, ...alertes].slice(0, 10), allowed_mentions: mentions } });
 }
 const titreFil = `Bulletin n° ${H.length} · ${dateL}`;
 async function poster(hook, body) {
