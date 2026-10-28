@@ -150,7 +150,7 @@ const hook = process.env.DISCORD_WEBHOOK_ALERTES, role = process.env.DISCORD_ROL
 if (!nouvelles.length) process.exit(0);
 const crit = nouvelles.some(a => a.sev >= 5);
 const payload = {
-  username: 'Veille stratégique · carburant',
+  username: 'Veille stratégique · carburant', avatar_url: 'https://raw.githubusercontent.com/Strategic-Game-Design/veille-strategique/main/avatars/carburant.png',
   content: `⛽ **Carburant : ${nouvelles.length} alerte${nouvelles.length > 1 ? 's' : ''}**${crit && role ? ` <@&${role}>` : ''}`,
   embeds: nouvelles.slice(0, 10).map(a => ({ title: `${a.sev >= 5 ? '🔴' : a.sev >= 4 ? '🟠' : '🔵'} ${a.titre}`.slice(0, 250), url: SITE + '#france-carburant', description: a.texte, color: a.sev >= 5 ? 0xbd2f29 : a.sev >= 4 ? 0xcf6420 : 0x2c4a80, footer: { text: 'prix-carburants.gouv.fr · relevé automatique' }, timestamp: now.toISOString() })),
   allowed_mentions: { parse: [], roles: crit && role ? [role] : [] },
