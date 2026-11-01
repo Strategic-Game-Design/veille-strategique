@@ -1,6 +1,69 @@
 [
  {
   "type": "niveau",
+  "sev": 5,
+  "titre": "France · risque extérieur : niveau 3 → 2 (Risque critique)",
+  "texte": "Valeur continue 2,52 → 2,45. Dégradation d'un niveau entier.",
+  "lien": "#france",
+  "date": "2026-11-01",
+  "id": "2026-11-01-1"
+ },
+ {
+  "type": "niveau",
+  "sev": 2,
+  "titre": "France · alertes officielles : niveau 2 → 3 (Alerte modérée)",
+  "texte": "Valeur continue 2,38 → 2,57. Amélioration d'un niveau entier.",
+  "lien": "#france",
+  "date": "2026-11-01",
+  "id": "2026-11-01-2"
+ },
+ {
+  "type": "detente",
+  "sev": 4,
+  "titre": "Spread OAT-Bund 10 ans redescend à 4/5",
+  "texte": "Spread OAT-Bund 156,6 pb (28 oct.) ; OAT 10 ans 4,94 % ; pic 176 pb le 23 oct. (plus haut depuis 2011)",
+  "lien": "#monde-financier",
+  "date": "2026-11-01",
+  "id": "2026-11-01-3"
+ },
+ {
+  "type": "detente",
+  "sev": 4,
+  "titre": "Ordre public et violences urbaines redescend à 4/5",
+  "texte": "31 oct. : 320 000 manifestants (autorités), 565 interpellations à 21 h (contre 1 435 le 24 oct.), 40 000 contrôles ; nouvelle journée intersyndicale le 5 nov.",
+  "lien": "#france-alertes",
+  "date": "2026-11-01",
+  "id": "2026-11-01-4"
+ },
+ {
+  "type": "detente",
+  "sev": 4,
+  "titre": "Marchés obligataires : spread OAT-Bund redescend à 4/5",
+  "texte": "156,6 pb le 28 oct. (OAT 4,94 %, Bund 3,37 %) ; pic 176 pb le 23 oct. ; ≈ 155 pb le 29 oct.",
+  "lien": "#france-interieur",
+  "date": "2026-11-01",
+  "id": "2026-11-01-5"
+ },
+ {
+  "type": "critique",
+  "sev": 5,
+  "titre": "Exposition énergétique : Ormuz, GNL, produits raffinés passe à 5/5",
+  "texte": "Gazole 2,36 €/l, 7,9 % des stations en rupture ; E10/SP95 10,4 % ; 52 départements ≥ 10 % (prix-carburants.gouv.fr, 31 oct.) ; Brent janv. 113,4 $",
+  "lien": "#france-exterieur",
+  "date": "2026-11-01",
+  "id": "2026-11-01-6"
+ },
+ {
+  "type": "posture",
+  "sev": 4,
+  "titre": "Posture officielle modifiée : Notations souveraines",
+  "texte": "Moody's Aa3 négative (23/10/2026) ; Fitch A+ stable (28/08) ; S&P A+ stable (29/05, revue le 27/11) ; DBRS AA négative ; Scope A+ stable",
+  "lien": "#france-postures",
+  "date": "2026-11-01",
+  "id": "2026-11-01-7"
+ },
+ {
+  "type": "niveau",
   "sev": 2,
   "titre": "France · risque extérieur : niveau 2 → 3 (Risque élevé)",
   "texte": "Valeur continue 2,47 → 2,52. Amélioration d'un niveau entier.",

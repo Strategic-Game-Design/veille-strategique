@@ -4,8 +4,57 @@
 <id>https://strategic-game-design.github.io/veille-strategique/alertes.xml</id>
 <link rel="self" href="https://strategic-game-design.github.io/veille-strategique/alertes.xml"/>
 <link rel="alternate" href="https://strategic-game-design.github.io/veille-strategique/"/>
-<updated>2026-10-25T08:00:00+02:00</updated>
+<updated>2026-11-01T08:00:00+02:00</updated>
 <author><name>Veille stratégique mondiale</name></author>
+<entry>
+<title>🔴 France · risque extérieur : niveau 3 → 2 (Risque critique)</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-01-1</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#france"/>
+<updated>2026-11-01T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;Valeur continue 2,52 → 2,45. Dégradation d&amp;apos;un niveau entier.&lt;/p&gt;&lt;p&gt;Bulletin du 1er novembre 2026&lt;/p&gt;</summary>
+</entry>
+<entry>
+<title>🔵 France · alertes officielles : niveau 2 → 3 (Alerte modérée)</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-01-2</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#france"/>
+<updated>2026-11-01T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;Valeur continue 2,38 → 2,57. Amélioration d&amp;apos;un niveau entier.&lt;/p&gt;&lt;p&gt;Bulletin du 1er novembre 2026&lt;/p&gt;</summary>
+</entry>
+<entry>
+<title>🟠 Spread OAT-Bund 10 ans redescend à 4/5</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-01-3</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#monde-financier"/>
+<updated>2026-11-01T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;Spread OAT-Bund 156,6 pb (28 oct.) ; OAT 10 ans 4,94 % ; pic 176 pb le 23 oct. (plus haut depuis 2011)&lt;/p&gt;&lt;p&gt;Bulletin du 1er novembre 2026&lt;/p&gt;</summary>
+</entry>
+<entry>
+<title>🟠 Ordre public et violences urbaines redescend à 4/5</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-01-4</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#france-alertes"/>
+<updated>2026-11-01T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;31 oct. : 320 000 manifestants (autorités), 565 interpellations à 21 h (contre 1 435 le 24 oct.), 40 000 contrôles ; nouvelle journée intersyndicale le 5 nov.&lt;/p&gt;&lt;p&gt;Bulletin du 1er novembre 2026&lt;/p&gt;</summary>
+</entry>
+<entry>
+<title>🟠 Marchés obligataires : spread OAT-Bund redescend à 4/5</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-01-5</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#france-interieur"/>
+<updated>2026-11-01T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;156,6 pb le 28 oct. (OAT 4,94 %, Bund 3,37 %) ; pic 176 pb le 23 oct. ; ≈ 155 pb le 29 oct.&lt;/p&gt;&lt;p&gt;Bulletin du 1er novembre 2026&lt;/p&gt;</summary>
+</entry>
+<entry>
+<title>🔴 Exposition énergétique : Ormuz, GNL, produits raffinés passe à 5/5</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-01-6</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#france-exterieur"/>
+<updated>2026-11-01T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;Gazole 2,36 €/l, 7,9 % des stations en rupture ; E10/SP95 10,4 % ; 52 départements ≥ 10 % (prix-carburants.gouv.fr, 31 oct.) ; Brent janv. 113,4 $&lt;/p&gt;&lt;p&gt;Bulletin du 1er novembre 2026&lt;/p&gt;</summary>
+</entry>
+<entry>
+<title>🟠 Posture officielle modifiée : Notations souveraines</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-01-7</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#france-postures"/>
+<updated>2026-11-01T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;Moody&amp;apos;s Aa3 négative (23/10/2026) ; Fitch A+ stable (28/08) ; S&amp;amp;P A+ stable (29/05, revue le 27/11) ; DBRS AA négative ; Scope A+ stable&lt;/p&gt;&lt;p&gt;Bulletin du 1er novembre 2026&lt;/p&gt;</summary>
+</entry>
 <entry>
 <title>🔵 France · risque extérieur : niveau 2 → 3 (Risque élevé)</title>
 <id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-10-25-1</id>
