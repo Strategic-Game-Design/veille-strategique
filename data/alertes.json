@@ -1,5 +1,23 @@
 [
  {
+  "type": "detente",
+  "sev": 4,
+  "titre": "Guerre États-Unis/Israël–Iran (jour 230) redescend à 4/5",
+  "texte": "Trump (FT, 3-4 nov.) : pas de frappe immédiate prévue, option militaire maintenue ; aucune frappe américaine confirmée depuis le 1er sept.",
+  "lien": "#monde-geopolitique",
+  "date": "2026-11-08",
+  "id": "2026-11-08-1"
+ },
+ {
+  "type": "detente",
+  "sev": 4,
+  "titre": "Pétrole Brent redescend à 4/5",
+  "texte": "Brent 98,32 $ / WTI 90,83 $ (règlement 6 nov., données secondaires) ; −9,2 % le 4 nov. à ≈ 94,11 $ ; ≈ −16 % sur la semaine",
+  "lien": "#monde-financier",
+  "date": "2026-11-08",
+  "id": "2026-11-08-2"
+ },
+ {
   "type": "niveau",
   "sev": 5,
   "titre": "France · risque extérieur : niveau 3 → 2 (Risque critique)",
