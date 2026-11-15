@@ -1,5 +1,14 @@
 [
  {
+  "type": "critique",
+  "sev": 5,
+  "titre": "Treasury US 10 ans passe à 5/5",
+  "texte": "10 ans US 5,14-5,15 % (13 nov.), ≈ +28 pb sur la semaine ; 2 ans 4,87-4,88 % (+35 pb) ; écart 10-2 ans ≈ 27 pb",
+  "lien": "#monde-financier",
+  "date": "2026-11-15",
+  "id": "2026-11-15-1"
+ },
+ {
   "type": "detente",
   "sev": 4,
   "titre": "Guerre États-Unis/Israël–Iran (jour 230) redescend à 4/5",

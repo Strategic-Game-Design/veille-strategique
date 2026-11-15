@@ -4,8 +4,15 @@
 <id>https://strategic-game-design.github.io/veille-strategique/alertes.xml</id>
 <link rel="self" href="https://strategic-game-design.github.io/veille-strategique/alertes.xml"/>
 <link rel="alternate" href="https://strategic-game-design.github.io/veille-strategique/"/>
-<updated>2026-11-08T08:00:00+02:00</updated>
+<updated>2026-11-15T08:00:00+02:00</updated>
 <author><name>Veille stratégique mondiale</name></author>
+<entry>
+<title>🔴 Treasury US 10 ans passe à 5/5</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-15-1</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#monde-financier"/>
+<updated>2026-11-15T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;10 ans US 5,14-5,15 % (13 nov.), ≈ +28 pb sur la semaine ; 2 ans 4,87-4,88 % (+35 pb) ; écart 10-2 ans ≈ 27 pb&lt;/p&gt;&lt;p&gt;Bulletin du 15 novembre 2026&lt;/p&gt;</summary>
+</entry>
 <entry>
 <title>🟠 Guerre États-Unis/Israël–Iran (jour 230) redescend à 4/5</title>
 <id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-08-1</id>
