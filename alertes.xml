@@ -4,8 +4,22 @@
 <id>https://strategic-game-design.github.io/veille-strategique/alertes.xml</id>
 <link rel="self" href="https://strategic-game-design.github.io/veille-strategique/alertes.xml"/>
 <link rel="alternate" href="https://strategic-game-design.github.io/veille-strategique/"/>
-<updated>2026-11-15T08:00:00+02:00</updated>
+<updated>2026-11-22T08:00:00+02:00</updated>
 <author><name>Veille stratégique mondiale</name></author>
+<entry>
+<title>🟠 Treasury US 10 ans redescend à 4/5</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-22-1</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#monde-financier"/>
+<updated>2026-11-22T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;10 ans 4,92 % (20/11), 5,093 % (19/11), 5,101 % (18/11) ; 2 ans 4,63 % (20/11), 4,839 % (19/11) ; 30 ans 5,31 % ; écart 10-2 ans ≈ 29 pb&lt;/p&gt;&lt;p&gt;Bulletin du 22 novembre 2026&lt;/p&gt;</summary>
+</entry>
+<entry>
+<title>🟠 Mobilisations sociales : grève du 29 septembre redescend à 4/5</title>
+<id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-22-2</id>
+<link href="https://strategic-game-design.github.io/veille-strategique/#france-interieur"/>
+<updated>2026-11-22T08:00:00+02:00</updated>
+<summary type="html">&lt;p&gt;17/11 : 146 000 (Intérieur), 28 000 à Paris, 500 000 (CGT) ; grévistes : FPE 2,59 %, FPH 3,93 %, FPT 1,96 % ; 21/11 : 44 manifestations annoncées (8 ans des gilets jaunes), sans bilan ; 26/11 : nouvelle journée annoncée ; rappel : 575 000 le 5/11, 106 000 le 14/11&lt;/p&gt;&lt;p&gt;Bulletin du 22 novembre 2026&lt;/p&gt;</summary>
+</entry>
 <entry>
 <title>🔴 Treasury US 10 ans passe à 5/5</title>
 <id>https://strategic-game-design.github.io/veille-strategique/#alerte-2026-11-15-1</id>

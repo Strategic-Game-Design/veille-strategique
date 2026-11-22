@@ -1,5 +1,23 @@
 [
  {
+  "type": "detente",
+  "sev": 4,
+  "titre": "Treasury US 10 ans redescend à 4/5",
+  "texte": "10 ans 4,92 % (20/11), 5,093 % (19/11), 5,101 % (18/11) ; 2 ans 4,63 % (20/11), 4,839 % (19/11) ; 30 ans 5,31 % ; écart 10-2 ans ≈ 29 pb",
+  "lien": "#monde-financier",
+  "date": "2026-11-22",
+  "id": "2026-11-22-1"
+ },
+ {
+  "type": "detente",
+  "sev": 4,
+  "titre": "Mobilisations sociales : grève du 29 septembre redescend à 4/5",
+  "texte": "17/11 : 146 000 (Intérieur), 28 000 à Paris, 500 000 (CGT) ; grévistes : FPE 2,59 %, FPH 3,93 %, FPT 1,96 % ; 21/11 : 44 manifestations annoncées (8 ans des gilets jaunes), sans bilan ; 26/11 : nouvelle journée annoncée ; rappel : 575 000 le 5/11, 106 000 le 14/11",
+  "lien": "#france-interieur",
+  "date": "2026-11-22",
+  "id": "2026-11-22-2"
+ },
+ {
   "type": "critique",
   "sev": 5,
   "titre": "Treasury US 10 ans passe à 5/5",
